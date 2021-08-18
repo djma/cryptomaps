@@ -11,3 +11,5 @@ You must carry with you the **native token** of your destination. Otherwise you 
 I have put together a rough map of my explorations. It isn't complete. No map is ever complete. In fact, a good map *omits* details that may confuse the traveler! Though if you find new and fertile lands, please help expanding the map.
 
 Enough talk. I hope my map serves you well fellow degen. Safe travels.
+
+![traversing-chains-map](traversing-chains.png)
