@@ -1,0 +1,70 @@
+flowchart LR
+    classDef native fill:#f96;
+
+    subgraph "Ethereum"
+    eth-eth[eth]:::native
+    eth-wbtc[wbtc]
+    eth-renbtc[renbtc]
+    eth-dai[dai]
+    eth-ust[ust]
+    eth-luna[luna]
+    eth-usdt[usdt]
+    eth-matic[matic]
+    end
+
+    subgraph "Polygon"
+    polygon-matic[matic]:::native
+    polygon-sol[sol]
+    end
+
+    subgraph Binance_Smart_Chain
+    bsc-bnb[bnb]:::native
+    bsc-eth[eth]
+    bsc-ust[ust]
+    end
+
+    subgraph "Terra"
+    terra-ust[ust]:::native
+    terra-luna[luna]:::native
+    end
+
+    subgraph "Solana"
+    solana-sol[sol]:::native
+    end
+
+    subgraph "Bitcoin"
+    bitcoin-btc[btc]:::native
+    end
+
+    subgraph "Optimism"
+    optimism-eth[eth]:::native
+    end
+
+    subgraph "xDAI"
+    xdai-xdai[xdai]:::native
+    end
+
+    eth-ust ---|"terra bridge"| terra-ust
+    eth-luna ---|"terra bridge"| terra-luna
+    terra-ust ---|"terra bridge"| bsc-ust
+
+    eth-eth ---|"optimism gateway"| optimism-eth
+    
+    eth-dai ---|"xdai bridge"| xdai-xdai
+
+    eth-usdt ---|"binance bridge"| bsc-bnb
+    eth-eth ---|"binance bridge"| bsc-eth
+
+    eth-matic ---|"matic bridge"| polygon-matic
+    
+    polygon-sol ---|"allbridge"| solana-sol
+
+    bitcoin-btc ---|"ren"| eth-renbtc
+    bitcoin-btc ---|"wbtc"| eth-wbtc
+
+    Ethereum ---|"omni bridge"| xDAI
+    Ethereum ---|"binance bridge"| Binance_Smart_Chain
+    Ethereum ---|"omni bridge"| Binance_Smart_Chain
+    Ethereum ---|"wormhole"| Solana
+    Ethereum ---|"sollet"| Solana
+    Ethereum ---|"matic bridge"| Polygon
