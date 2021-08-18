@@ -57,8 +57,6 @@ flowchart LR
 
     eth-matic ---|"matic bridge"| polygon-matic
     
-    polygon-sol ---|"allbridge"| solana-sol
-
     bitcoin-btc ---|"ren"| eth-renbtc
     bitcoin-btc ---|"wbtc"| eth-wbtc
 
@@ -68,3 +66,5 @@ flowchart LR
     Ethereum ---|"wormhole"| Solana
     Ethereum ---|"sollet"| Solana
     Ethereum ---|"matic bridge"| Polygon
+    Polygon ---|"allbridge"| Solana
+
