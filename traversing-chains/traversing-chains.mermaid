@@ -41,6 +41,10 @@ flowchart LR
     subgraph "Optimism"
     optimism-eth[eth]:::native
     end
+    
+    subgraph "Arbitrum"
+    arbitrum-eth[eth]:::native
+    end
 
     subgraph "xDAI"
     xdai-xdai[xdai]:::native
@@ -59,6 +63,8 @@ flowchart LR
     terra-ust ---|"bridge.terra.money"| bsc-ust
 
     eth-eth ---|"gateway.optimism.io"| optimism-eth
+    
+    eth-eth ---|"bridge.arbitrum.one"| arbitrum-eth
 
     eth-avax[avax] ---|"bridge.avax.network"| avalanche-avax
 
