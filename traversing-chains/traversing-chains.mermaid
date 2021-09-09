@@ -8,7 +8,6 @@ flowchart LR
     eth-dai[dai]
     eth-ust[ust]
     eth-luna[luna]
-    eth-usdt[usdt]
     eth-matic[matic]
     eth-avax[avax]
     eth-ftm[ftm]
@@ -16,7 +15,6 @@ flowchart LR
 
     subgraph "Polygon"
     polygon-matic[matic]:::native
-    polygon-sol[sol]
     end
 
     subgraph Binance_Smart_Chain
@@ -32,6 +30,7 @@ flowchart LR
 
     subgraph "Solana"
     solana-sol[sol]:::native
+    solana-renbtc[renbtc]
     end
 
     subgraph "Bitcoin"
@@ -42,6 +41,10 @@ flowchart LR
     optimism-eth[eth]:::native
     end
     
+    subgraph "Arbitrum"
+    arbitrum-eth[eth]:::native
+    end
+
     subgraph "Arbitrum"
     arbitrum-eth[eth]:::native
     end
@@ -62,8 +65,12 @@ flowchart LR
     eth-luna ---|"bridge.terra.money"| terra-luna
     terra-ust ---|"bridge.terra.money"| bsc-ust
 
+    eth-eth -->|"sollet.io"| solana-sol
+
     eth-eth ---|"gateway.optimism.io"| optimism-eth
     
+    eth-eth ---|"bridge.arbitrum.one"| arbitrum-eth
+
     eth-eth ---|"bridge.arbitrum.one"| arbitrum-eth
 
     eth-avax[avax] ---|"bridge.avax.network"| avalanche-avax
@@ -73,20 +80,12 @@ flowchart LR
     
     eth-dai ---|"bridge.xdaichain.com"| xdai-xdai
 
-    eth-usdt ---|"binance.org/en/bridge"| bsc-bnb
+    eth-eth ---|"binance.org/en/bridge"| bsc-bnb
     eth-eth ---|"binance.org/en/bridge"| bsc-eth
 
-    eth-matic ---|"matic bridge"| polygon-matic
+    eth-matic ---|"wallet.matic.network/bridge"| polygon-matic
     
-    bitcoin-btc ---|"ren"| eth-renbtc
+    bitcoin-btc ---|"bridge.renproject.io"| solana-renbtc
+    bitcoin-btc ---|"bridge.renproject.io"| eth-renbtc
     bitcoin-btc ---|"wbtc"| eth-wbtc
-
-    Ethereum ---|"omni bridge"| xDAI
-    Ethereum ---|"binance.org/en/bridge"| Binance_Smart_Chain
-    Ethereum ---|"omni bridge"| Binance_Smart_Chain
-    Ethereum ---|"wormhole"| Solana
-    Ethereum ---|"sollet"| Solana
-    Ethereum ---|"matic bridge"| Polygon
-    Polygon ---|"allbridge"| Solana
-
 
